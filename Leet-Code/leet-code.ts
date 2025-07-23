@@ -8,7 +8,7 @@ function twoSum(nums: number[], target: number): number[] {
         }
     }
     return [];
-};
+}
 
 // 04. Median of Two Sorted Arrays
 function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
@@ -22,4 +22,40 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     var sum = nums3[nums3.length/2] + (nums3[nums3.length/2 - 1]);
 
     return sum/2;
-};
+}
+
+// 09. Palindrome Number
+function isPalindrome(x: number): boolean {
+    if(x < 0) {
+        return false;
+    }
+    if(x.toString() != x.toString().split('').reverse().join('')) {
+        return false;
+    }
+    return true;
+}
+
+
+// 28. Find the Index of the First Occurrence in a String
+function strStr(haystack: string, needle: string): number {
+    var l: number = 0, r = 0, index = 0, count = 0;
+
+    while(r < haystack.length) {
+        if(haystack.charAt(r) == needle.charAt(index)) {
+            count++;
+            r++;    
+            index++;
+        } else {
+            count = 0;
+            l++;
+            r = l;
+            index = 0;
+        }
+        if(count == needle.length) {
+            return l;
+        }
+    }
+    return -1;
+}
+
+console.log(strStr("sadbutsad", "sad"));
